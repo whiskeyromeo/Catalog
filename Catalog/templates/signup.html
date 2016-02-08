@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% from "form_macros.html" import render_field %}
+
+{% block title %}
+    SignUp/Register
+{% endblock %}
+
+{% block content %}
+    <h1>Signup/Register</h1>
+    <form action="" method="post" id="signup">
+        {{form.hidden_tag()}}
+        {{ render_field(form.username, size=50, class="form-group")}}
+        {{ render_field(form.name, size=50, class="form-group")}}
+        {{ render_field(form.email, size=50, class="form-group")}}
+        {{ render_field(form.picture, size=50, class="form-group")}}
+        {{ render_field(form.password, size=50, class="form-group")}}
+        {{ render_field(form.confirmPassword, size=50, class="form-group")}}
+        {{ render_field(form.submit, class="btn btn-primary")}}
+    </form>
+{% endblock %}

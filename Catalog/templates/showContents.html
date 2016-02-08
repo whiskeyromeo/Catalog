@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{title }}
+{% endblock %}
+
+{% block content %}
+
+<div id="sidebar" class="col-md-3">
+    <h3>Categories</h3>
+    <ul>
+        {% for category in categories %}
+        <li>
+            <h4>
+                <a href="{{url_for('catalog.showCategory', category_name=category.title)}}">
+                {{category.title}}
+                </a>
+            </h4>
+        </li>
+        {% endfor%}
+    </ul>
+</div>
+<div id="content" class="col-md-9">
+    <div id="contentHeader" class="col-md-12">
+        <h3 class="col-md-9">
+            {{title}} Items ({{items|count}} Items)
+        </h3>
+    </div>
+    <hr>
+    <ul id="itemContent" class="col-md-12">
+        {% for item in items %}
+            <li class="items" class="col-md-12">
+              {% if item.photo_path != None %}
+               <img src="{{url_for('static', filename='uploads/' + item.photo_path)}}" style="width:40px; height: 40px; display: inline;" alt="None" class="col-md-1">
+               {% else %}
+               <img src="{{url_for('static', filename='img/NoImage.gif')}}" style="width:40px; height: 40px; display: inline;" alt="None" class="col-md-1">
+               {% endif%}
+                <h4 class="col-md-5">
+                    <a href="{{url_for('catalog.showItem', category_name=categories[item.category_id - 1].title, item_name=item.name)}}">{{item.name}}</a>
+                </h4>
+                {% if session.name and session.user_id == item.user_id %}
+                    <a href="{{url_for('catalog.editItem', category_id=item.category_id, item_name=item.name) }}" class="col-md-2">Edit</a>   
+                    <a href="{{url_for('catalog.deleteItem', category_id=item.category_id, item_name=item.name) }}" class="col-md-2">Delete</a>    
+                {% endif %}
+            </li>
+            <hr>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

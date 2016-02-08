@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<author>
+		<name></name>
+	</author>
+	<title type="text">Catalog</title>
+	{% for category in categories %}
+	<entry>
+		<title type="text">{{category.title}}</title>
+		<summary type="xhtml">
+			<div xmlns="http://www.w3.org/1999/xhtml">
+				<p>ID: <category_id>{{category.id}}</category_id></p>
+				<p>Category: <category>{{category.title}}</category></p>
+				<p>Items: <category_items>
+                    <ul>
+                    {% for item in category.items %}
+                        <li>
+                            <p>Item {{item.id}} : {{item.name }}</p>
+                            <ul>
+                                <li>Id: <item_id>{{item.id}}</item_id></li>
+                                <li>Name: <item_name>{{item.name}}</item_name></li>
+                                <li>Description: <item_description>{{item.description}}</item_description></li>
+                                <li><item_user_id>User Id: {{item.user_id}}</item_user_id></li>
+                            </ul>
+                        </li> 
+                    {% else %}
+                        No Items
+                    {% endfor %}
+                    </ul>
+				</category_items></p>
+			</div>
+		</summary>
+	</entry>
+	<hr/>
+	{% endfor %}
+</feed>
