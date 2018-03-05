@@ -52,12 +52,6 @@ Use the manager to seed the database
 $ python manage.py seedDB
 ```
 
-In order to drop the database
-
-```sh
-$ python manage.py dropDB
-```
-
 To reset the database to the initial migration once it has been dropped
 
 ```sh
@@ -88,8 +82,6 @@ Currently the project relies on the following requirements
 
 
 ### Credits
-
-- [Udacity Discussions] - Adarsh's response here helped me establish the xml endpoint. 
 - [Pluralsight] - The file structure is based on the 'Introduction to the Flask Microframework' course on Pluralsight by Reindert-Jan Ekker. I highly recommend the course as in introduces the use of blueprints and database migrations very effectively.
  - [StackExchange] -  Json serialization idea came from Plaes answer.
 
