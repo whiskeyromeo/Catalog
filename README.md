@@ -83,7 +83,7 @@ Currently the project relies on the following requirements
 - Flask-WTF
 - WTForms
 - oauth2client
-- Requests
+- Requests 
 - Flask-Script
 
 
