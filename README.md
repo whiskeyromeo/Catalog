@@ -1,7 +1,7 @@
 
 # Catalog
 
->Catalog is a simple RESTful app built with Flask
+>Catalog is a simple RESTful app built with Flask and postgres
 
 ## TODOS
 
@@ -26,6 +26,12 @@ To list the db commands
 
 ```sh
 $ python manage.py db
+```
+
+Ensure that you have postgres set up and create a user by the name of 'catalog'
+```
+$ psql
+> create user catalog;
 ```
 
 To init the migration file structure
